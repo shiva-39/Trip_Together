@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "8725123139",
+    "project_id": "triptogether-4e036",
+    "storage_bucket": "triptogether-4e036.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8725123139:android:04673aa48ff90dc92304f6",
+        "android_client_info": {
+          "package_name": "com.example.triptogether"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNqkpGjUh1RLOfhD2OE5o9nBe2lo2KJJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

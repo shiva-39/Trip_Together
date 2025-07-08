@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".PersonalDetails">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:id="@+id/headerSection"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#083257"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Details"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+    <!-- ScrollView for content -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/headerSection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <!-- Profile Picture -->
+            <TextView
+                android:id="@+id/profilePictureLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile Picture"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp"/>
+
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="4dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_background"
+                android:clipToOutline="true"
+                android:padding="4dp"
+                android:src="@drawable/baseline_account_circle_24"
+                android:contentDescription="Profile Picture"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <!-- Full Name -->
+            <TextView
+                android:id="@+id/fullNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/fullname"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:hint="Enter full name"
+                android:enabled="false"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:layout_marginTop="4dp"/>
+
+            <!-- User Name -->
+            <TextView
+                android:id="@+id/userNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:hint="Enter user name"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Phone Number -->
+            <TextView
+                android:id="@+id/phoneNumberLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:enabled="false"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:inputType="phone"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Email -->
+            <TextView
+                android:id="@+id/emailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:enabled="false"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:inputType="textEmailAddress"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Address -->
+            <TextView
+                android:id="@+id/addressLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:hint="Ex: North Street 1"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Alternate Phone Number -->
+            <TextView
+                android:id="@+id/altPhoneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alternate Phone Number"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/alternatephn"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:inputType="phone"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Blood Group Dropdown -->
+            <TextView
+                android:id="@+id/bloodGroupLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blood Group"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/blood_group_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:hint="Select Blood Group"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:inputType="none"
+                android:dropDownHeight="wrap_content"
+                android:dropDownWidth="match_parent"
+                android:layout_marginTop="4dp" />
+
+            <!-- Gender Dropdown -->
+            <TextView
+                android:id="@+id/genderLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/gender_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:hint="Select Gender"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:inputType="none"
+                android:dropDownHeight="wrap_content"
+                android:dropDownWidth="match_parent"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#083257"
+                android:text="Update"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:padding="12dp"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+<!-- res/drawable/ride_placeholder.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="150dp"
+    android:height="45dp"
+    android:viewportWidth="150"
+    android:viewportHeight="45">
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M0,0h150v45H0z"/>
+    <path
+        android:fillColor="#B0BEC5"
+        android:pathData="M10,10h130v25H10z"/>
+</vector>

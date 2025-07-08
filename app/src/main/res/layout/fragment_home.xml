@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true"
+    tools:context=".home_screen">
+
+    <!-- 🌟 Top Section (Greeting + Profile) -->
+    <LinearLayout
+        android:id="@+id/top_section"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/greeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello, User!"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/welcome_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your current location"
+                android:textSize="14sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/circle_background"
+            android:src="@drawable/baseline_account_circle_24"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true"
+            android:padding="2dp"
+            android:contentDescription="Profile Picture"
+            android:layout_marginEnd="8dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="10dp"
+        android:layout_below="@id/top_section"
+        android:visibility="visible">
+        <LinearLayout
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 🔍 Search Bar -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="1dp"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_search"
+                        android:contentDescription="Search Icon"
+                        app:tint="@android:color/darker_gray"/>
+
+                    <EditText
+                        android:id="@+id/search_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Search..."
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@android:color/transparent"
+                        android:paddingStart="10dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 📢 No Results Message -->
+            <TextView
+                android:id="@+id/no_results_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Oops, no section found"
+                android:textSize="18sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="center"
+                android:padding="16dp"
+                android:visibility="gone"/>
+
+            <!-- 🚗 Live Ride Section -->
+            <RelativeLayout
+                android:id="@+id/liveRideSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingVertical="16dp">
+            <RelativeLayout
+                android:id="@+id/live_ride_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/live_ride"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Live Ride"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
+
+                <ImageView
+                    android:id="@+id/live_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_live_symbol"
+                    android:layout_toEndOf="@id/live_ride"
+                    android:layout_marginStart="5dp"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+            <!-- 🗺️ Card to Open Google Maps -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/open_maps_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/live_ride_section"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp"
+                android:layout_marginBottom="20dp"
+                android:padding="30dp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:id="@+id/go_to_live_ride"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:background="@color/card"
+                    android:backgroundTint="@color/white"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_map"
+                        android:id="@+id/mapIcon"
+                        android:contentDescription="Map Icon"
+                        android:layout_marginEnd="12dp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/ride_status_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Continue The Ride"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"/>
+
+                        <TextView
+                            android:id="@+id/ride_status_subtext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tap here to view the directions"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/darker_gray"/>
+                    </LinearLayout>
+
+                    <!-- ➡️ Right Arrow at the Right Edge -->
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:id="@+id/arrowRight"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_arrow_right"
+                        android:contentDescription="Arrow Icon"
+                        android:layout_marginStart="12dp"
+                        app:tint="@android:color/black" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+            <!-- 🚗 Past Rides Section -->
+            <RelativeLayout
+                android:id="@+id/past_rides_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingVertical="16dp">
+
+                <TextView
+                    android:id="@+id/past_rides_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Past Rides"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="8dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/past_rides_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/past_rides_title"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="8dp"
+                    android:clipToPadding="false"
+                    android:scrollbars="none"
+                    android:overScrollMode="never"/>
+
+            </RelativeLayout>
+
+            <!-- 🚗 Bike Performance Section -->
+            <RelativeLayout
+                android:id="@+id/bike_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingVertical="16dp">
+                <TextView
+                    android:id="@+id/bike_performance_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vehicle Performance"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_margin="16dp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/bike_performance_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/bike_performance_title"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="8dp"
+                    android:clipToPadding="false"
+                    android:scrollbars="none"
+                    android:overScrollMode="never"/>
+            </RelativeLayout>
+
+            <!-- 🚗 Rider Performance Section -->
+            <RelativeLayout
+                android:id="@+id/performance_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingVertical="16dp">
+                <TextView
+                    android:id="@+id/performance_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rider Performance"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_margin="16dp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/performance_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/performance_title"
+                    android:paddingHorizontal="10dp"
+                    android:clipToPadding="false"
+                    android:scrollbars="none"
+                    android:overScrollMode="never"/>
+            </RelativeLayout>
+
+            <!-- 🚗 RevGPT Section -->
+            <RelativeLayout
+                android:id="@+id/chatgpt_section"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp">
+                <TextView
+                    android:id="@+id/chatgpt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RevGPT"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_margin="16dp"/>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/open_gpt_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/chatgpt_title"
+                    android:layout_marginHorizontal="16dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="8dp"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:id="@+id/go_to_gpt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:clickable="true"
+                        android:background="@color/card"
+                        android:backgroundTint="@color/white"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_revgpt"
+                            android:contentDescription="Map Icon"
+                            android:layout_marginEnd="12dp"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Stuck ?"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Just Rev up with RevGPT!"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/darker_gray"/>
+                        </LinearLayout>
+
+                        <!-- ➡️ Right Arrow at the Right Edge -->
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_arrow_right"
+                            android:contentDescription="Arrow Icon"
+                            android:layout_marginStart="12dp"
+                            app:tint="@android:color/black" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

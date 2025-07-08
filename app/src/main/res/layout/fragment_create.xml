@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Header with Two Buttons -->
+    <!-- Header with Three Buttons -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#083257"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Create Ride -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="98dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnCreateRide"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Create Ride"
+                android:backgroundTint="@color/app_button"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:padding="12dp" />
+
+            <View
+                android:id="@+id/lineCreate"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@android:color/white"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <!-- Join Ride -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="98dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnJoinRide"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Join Ride"
+                android:backgroundTint="@color/app_button"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:padding="12dp" />
+
+            <View
+                android:id="@+id/lineJoin"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@android:color/white"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- Ride Details (Initially hidden) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="98dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:id="@+id/rideDetailsTab">
+
+            <Button
+                android:id="@+id/btnRideDetails"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Ride Details"
+                android:backgroundTint="@color/app_button"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:padding="12dp" />
+
+            <View
+                android:id="@+id/lineDetails"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@android:color/white"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!-- Create Ride Layout -->
+    <ScrollView
+        android:id="@+id/createRideLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Create Ride"
+                android:textColor="#333333"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/rideIdLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ride ID"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/rideId"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_edittext"
+                android:enabled="false"
+                android:padding="12dp"
+                android:text="RID-XXXX-YYYY"
+                android:textColor="#666666"
+                android:textSize="16sp"
+                android:visibility="visible" />
+
+            <!-- Ride Name -->
+            <TextView
+                android:id="@+id/rideNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Ride Name"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/rideName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Enter ride name"
+                android:padding="12dp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="16sp" />
+
+            <!-- Group Size -->
+            <TextView
+                android:id="@+id/groupSizeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Group Size"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/groupSize"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Enter number of people"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="16sp" />
+
+            <!-- Joining Link with Copy Button -->
+            <TextView
+                android:id="@+id/joinLinkLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Joining Link"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_edittext"
+                android:elevation="4dp"
+                android:orientation="horizontal"
+                android:padding="1dp">
+
+                <!-- Joining Link -->
+                <EditText
+                    android:id="@+id/joinLink"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:ellipsize="end"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:longClickable="false"
+                    android:maxLines="2"
+                    android:padding="8dp"
+                    android:text="https://rideapp.com/join/XXXX-YYYY"
+                    android:textColor="#0066CC"
+                    android:textSize="16sp"
+                    android:visibility="visible" />
+
+                <!-- Copy Button with Icon -->
+                <ImageButton
+                    android:id="@+id/copyButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Copy link"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_copy" />
+            </LinearLayout>
+
+
+            <!-- Start Date -->
+            <TextView
+                android:id="@+id/startDateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Start Date"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/startDate"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_edittext"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="Select date"
+                android:padding="12dp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="16sp" />
+
+
+            <!-- Start Time -->
+            <TextView
+                android:id="@+id/startTimeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Start Time"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/startTime"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_edittext"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="Select time"
+                android:padding="12dp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="16sp" />
+
+            <!-- Start Point -->
+            <!-- Start Point -->
+            <!-- Start Point -->
+            <TextView
+                android:id="@+id/startPointLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Start Point"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_edittext">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/startPointAutocomplete"
+                    android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
+
+            <!-- Destination -->
+            <TextView
+                android:id="@+id/destinationLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Destination"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_edittext">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/destinationAutocomplete"
+                    android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/createSubmitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#083257"
+                android:padding="12dp"
+                android:text="Create Ride"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Join Ride Layout -->
+    <ScrollView
+        android:id="@+id/joinRideLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Join Ride"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_marginBottom="16dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/joinRideIdInput"
+                android:layout_height="48dp"
+                android:hint="Enter Ride ID"
+                android:padding="12dp"
+                android:background="@drawable/rounded_edittext"
+                android:textSize="16sp"
+                android:textColorHint="#999999" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OR"
+                android:layout_marginVertical="12dp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textColor="#666666" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/joinRideLinkInput"
+                android:layout_height="48dp"
+                android:hint="Paste Joining Link"
+                android:padding="12dp"
+                android:background="@drawable/rounded_edittext"
+                android:textSize="16sp"
+                android:textColorHint="#999999" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/joinSubmitButton"
+                android:text="Join"
+                android:backgroundTint="@color/app_button"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="16dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Group Details Layout (Shown after creating or joining a group) -->
+    <ScrollView
+        android:id="@+id/groupDetailsLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Group Ride Details"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/detailsRideName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ride Name: Office Commute"
+                android:textSize="16sp"
+                android:textColor="#444444"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/detailsGroupSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Group Size: 4"
+                android:textSize="16sp"
+                android:textColor="#444444"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/detailsStartDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start Date: 04/08/2025"
+                android:textSize="16sp"
+                android:textColor="#444444"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/detailsStartTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start Time: 08:00 AM"
+                android:textSize="16sp"
+                android:textColor="#444444"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/detailsStartPoint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start Point: Home"
+                android:textSize="16sp"
+                android:textColor="#444444"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/detailsDestination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Destination: Office"
+                android:textSize="16sp"
+                android:textColor="#444444"
+                android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/membersHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Members:"
+                android:textStyle="bold"
+                android:paddingTop="12dp" />
+
+            <LinearLayout
+                android:id="@+id/membersList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="4dp" />
+
+            <!-- Button to Leave Group or Go Back (optional) -->
+            <Button
+                android:id="@+id/leaveGroupButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Leave Group"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#D32F2F"
+                android:layout_marginTop="24dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

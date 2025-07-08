@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:id="@+id/headerSection"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#083257"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vehicle Details"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+    <!-- ScrollView for content -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/headerSection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <!-- Full Name -->
+            <TextView
+                android:id="@+id/rideIdLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type of Vehicle"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/vehicle_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:hint="Select type of vehicle"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:inputType="none"
+                android:dropDownHeight="wrap_content"
+                android:dropDownWidth="match_parent"
+                android:dropDownAnchor="@id/vehicle_dropdown"
+                android:layout_marginTop="4dp"/>
+
+            <!-- User Name -->
+            <TextView
+                android:id="@+id/rideNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vehicle Company"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/company"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:hint="Ex : Royal Enfield"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Phone Number -->
+            <TextView
+                android:id="@+id/phoneNumberLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vehicle Model"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/model"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Ex : Classic 350"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Gmail -->
+            <TextView
+                android:id="@+id/joinLinkLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Year of purchse"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/year"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="number"
+                android:hint="Ex : 2018"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:layout_marginTop="4dp"/>
+
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#083257"
+                android:text="Update"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:padding="12dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
